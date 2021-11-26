@@ -54,3 +54,4 @@ COMMIT;
 INSERT INTO cron.job(schedule, command)
 VALUES ('* 59 * * *', $$REFRESH MATERIALIZED VIEW CONCURRENTLY olympus.olympus_hourly_rebase$$)
 ON CONFLICT (command) DO UPDATE SET schedule=EXCLUDED.schedule;
+COMMIT
